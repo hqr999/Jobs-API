@@ -24,5 +24,5 @@ module.exports = {
     getJob,
     createJob,
     updateJob,
-    deleteJob
+    deleteJob,
 }
