@@ -1,21 +1,21 @@
 const getAllJobs = async(req,res) => {
-    res.send('get all jobs')
+    res.send('pega todos os empregos')
 }
 
 const getJob = async(req,res) => {
-    res.send('get a job')
+    res.send('pega um emprego')
 }
 
 const createJob = async(req,res) => {
-    res.send('job created')
+    res.send('emprego criado')
 }
 
 const updateJob = async(req,res) => {
-    res.send('job updated')
+    res.send('emprego atualizado')
 }
 
 const deleteJob = async(req,res) => {
-    res.send('job deleted')
+    res.send('emprego deletado')
 }
 
 
