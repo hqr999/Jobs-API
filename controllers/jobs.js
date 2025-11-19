@@ -1,5 +1,11 @@
+const { StatusCodes } = require('http-status-codes')
+const Job = require('../models/Job')
+const {BadRequestError,NotFoundError} = require('../errors')
+
+
 const getAllJobs = async(req,res) => {
-    res.send('pega todos os empregos')
+    const empregos = await Job.find({criado_por:req.user.userId}).sort('createdAt')
+    res.status(StatusCodes.OK).json({empregos,quantidade: empregos.length})
 }
 
 const getJob = async(req,res) => {
@@ -7,7 +13,9 @@ const getJob = async(req,res) => {
 }
 
 const createJob = async(req,res) => {
-    res.json(req.user)
+    req.body.criado_por = req.user.userId
+    const emprego = await Job.create(req.body)
+    res.status(StatusCodes.CREATED).json({emprego})
 }
 
 const updateJob = async(req,res) => {
